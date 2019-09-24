@@ -1,7 +1,5 @@
 import React from "react";
 import "./App.css";
-
-import ListTwit from "./components/ListTwit";
 import Home from "./containers/Home";
 
 function App() {

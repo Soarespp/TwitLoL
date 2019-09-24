@@ -1,38 +1,16 @@
 import React, { Component } from "react";
-import Imagem from "./../imgs/cybe.png";
 import "./Twit.css";
+import { connect } from "react-redux";
 
 import TwitProp from "./TwitProp";
 
-class ListTwit extends Component {
+class ListTwitProp extends Component {
   render() {
-    const Twits = [
-      {
-        id: 0,
-        imag: { Imagem },
-        user: "Pedro 1",
-        texto:
-          "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
-      },
-      {
-        id: 1,
-        imag: { Imagem },
-        user: "Pedro 2",
-        texto:
-          "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
-      },
-      {
-        id: 2,
-        imag: { Imagem },
-        user: "Pedro 3",
-        texto:
-          "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
-      }
-    ];
+    const { twitsProp } = this.props;
 
     return (
       <ul className="Twits">
-        {Twits.map(twit => (
+        {twitsProp.map(twit => (
           <li className="twit" key={twit.id}>
             <TwitProp
               id={twit.id}
@@ -47,4 +25,6 @@ class ListTwit extends Component {
   }
 }
 
-export default ListTwit;
+export default connect(state => ({
+  twitsProp: state.twitsProp
+}))(ListTwitProp);

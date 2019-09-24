@@ -1,38 +1,24 @@
 import React, { Component } from "react";
-import Imagem from "./../imgs/cybe.png";
 import "./Twit.css";
-
 import Twit from "./Twit";
+
+import { connect } from "react-redux";
+
+/*function toggleLesson(module, lesson) {
+  return {
+    type: "TOGGLE_LESSON",
+    module,
+    lesson
+  };
+} */
 
 class ListTwit extends Component {
   render() {
-    const Twits = [
-      {
-        id: 0,
-        imag: { Imagem },
-        user: "Pedro 1",
-        texto:
-          "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
-      },
-      {
-        id: 1,
-        imag: { Imagem },
-        user: "Pedro 2",
-        texto:
-          "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
-      },
-      {
-        id: 2,
-        imag: { Imagem },
-        user: "Pedro 3",
-        texto:
-          "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
-      }
-    ];
+    const { twits } = this.props;
 
     return (
       <ul className="Twits">
-        {Twits.map(twit => (
+        {twits.map(twit => (
           <li className="twit" key={twit.id}>
             <Twit
               id={twit.id}
@@ -47,4 +33,6 @@ class ListTwit extends Component {
   }
 }
 
-export default ListTwit;
+export default connect(state => ({
+  twits: state.twits
+}))(ListTwit);

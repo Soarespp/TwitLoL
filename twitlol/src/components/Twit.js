@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Imagem from "./../imgs/cybe.png";
 import "./Twit.css";
 
 class Twit extends Component {
