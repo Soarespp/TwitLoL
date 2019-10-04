@@ -1,17 +1,27 @@
 import React, { Component } from "react";
 import "./Home.css";
+import { connect } from "react-redux";
 
 import ListTwit from "./../components/ListTwit";
 import ListTwitProp from "./../components/ListTwitsProp";
+import Imagem from "./../imgs/cybe.png";
+import { IncTwit } from "../store/actions";
 
 class Home extends Component {
+  state = {
+    testeName: ""
+  };
+
   render() {
+    const { twits } = this.props;
+    const { incluirTwit } = this.props;
+
     return (
       <div class="grid-container">
         <div class="item2">
           <div>Menu</div>
           <div>
-            <button>Twitar</button>
+            <button onClick={() => incluirTwit(twits)}>Twitar</button>
           </div>
         </div>
         <div class="item3">
@@ -24,5 +34,15 @@ class Home extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  twits: state.twits
+});
 
-export default Home;
+const mapDispatchToProps = dispatch => ({
+  incluirTwit: twit => dispatch(IncTwit(twit))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

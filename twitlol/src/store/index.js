@@ -4,23 +4,12 @@ import Imagem from "./../imgs/cybe.png";
 const INITIAL_STATE = {
   activelesson: [],
   activemodule: [],
+  teste: "teste log",
   twits: [
     {
       id: 0,
       imag: { Imagem },
-      user: "Pedro 1",
-      texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
-    },
-    {
-      id: 1,
-      imag: { Imagem },
       user: "Pedro 2",
-      texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
-    },
-    {
-      id: 2,
-      imag: { Imagem },
-      user: "Pedro 3",
       texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
     }
   ],
@@ -28,14 +17,7 @@ const INITIAL_STATE = {
     {
       id: 0,
       imag: { Imagem },
-      user: "Proprio Pedro 1",
-      texto:
-        "Proprio Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
-    },
-    {
-      id: 1,
-      imag: { Imagem },
-      user: "Proprio Pedro 2",
+      user: "Pedro 1",
       texto:
         "Proprio Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
     }
