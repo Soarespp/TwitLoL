@@ -9,8 +9,24 @@ import { IncTwit } from "../store/actions";
 
 class Home extends Component {
   state = {
-    testeName: ""
+    newId: 0
   };
+
+  pegarId(twits) {
+    console.log("pegar id");
+    console.log(twits);
+    console.log(this.newId);
+
+    this.newId = 0;
+
+    for (var i = 0; i < twits.length; i++) {
+      if (twits[i].id > this.newId) {
+        this.newId = twits[i].id;
+      }
+    }
+    this.newId = this.newId + 1;
+    return this.newId;
+  }
 
   render() {
     const { twits } = this.props;
@@ -21,7 +37,19 @@ class Home extends Component {
         <div class="item2">
           <div>Menu</div>
           <div>
-            <button onClick={() => incluirTwit(twits)}>Twitar</button>
+            <button
+              onClick={() =>
+                incluirTwit({
+                  id: this.pegarId(twits),
+                  imag: { Imagem },
+                  user: "Pedro " + this.newId,
+                  texto:
+                    "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
+                })
+              }
+            >
+              Twitar
+            </button>
           </div>
         </div>
         <div class="item3">

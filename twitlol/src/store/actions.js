@@ -1,6 +1,3 @@
-import Imagem from "./../imgs/cybe.png";
-import { async } from "q";
-
 export function toggleLesson(module, lesson) {
   return {
     type: "TOGGLE_LESSON",
@@ -9,9 +6,17 @@ export function toggleLesson(module, lesson) {
   };
 }
 
-export const IncTwit = twits => dispatch => {
-  console.log(twits);
-  /* const Dados = twits;
+export const IncTwit = twits => ({
+  type: "INC_TWIT",
+  twits
+});
+
+/*export const IncTwit = twits => dispatch => {
+  return {
+    type: "INC_TWIT",
+    twits
+  };
+   const Dados = twits;
   const newId = 0;
 
   for (var i = 0; i < Dados.length; i++) {
@@ -25,5 +30,5 @@ export const IncTwit = twits => dispatch => {
     img: { Imagem },
     user: "Pedro 1",
     texto: "inclusão manual"
-  }); */
-};
+  }); 
+};*/

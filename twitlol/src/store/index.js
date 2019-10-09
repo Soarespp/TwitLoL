@@ -9,7 +9,7 @@ const INITIAL_STATE = {
     {
       id: 0,
       imag: { Imagem },
-      user: "Pedro 2",
+      user: "Pedro 0",
       texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
     }
   ],
@@ -17,7 +17,7 @@ const INITIAL_STATE = {
     {
       id: 0,
       imag: { Imagem },
-      user: "Pedro 1",
+      user: "Pedro 0",
       texto:
         "Proprio Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
     }
@@ -25,15 +25,22 @@ const INITIAL_STATE = {
 };
 
 function reducer(state = INITIAL_STATE, action) {
-  if (action.type === "TOGGLE_LESSON") {
-    return {
-      ...state,
-      activelesson: action.lesson,
-      activemodule: action.module
-    };
+  switch (action.type) {
+    case "TOGGLE_LESSON":
+      return {
+        ...state
+      };
+    case "INC_TWIT":
+      console.log("teste 1");
+      console.log(state.twits);
+      console.log(action.twits);
+      return {
+        ...state,
+        twits: [...state.twits, action.twits]
+      };
+    default:
+      return state;
   }
-
-  return state;
 }
 
 const store = createStore(reducer);
