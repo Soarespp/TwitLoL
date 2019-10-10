@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import ListTwit from "./../components/ListTwit";
 import ListTwitProp from "./../components/ListTwitsProp";
 import Imagem from "./../imgs/cybe.png";
-import { IncTwit } from "../store/actions";
+import { IncTwit, GetIDTwit } from "../store/actions";
 
 class Home extends Component {
   state = {
@@ -13,12 +13,7 @@ class Home extends Component {
   };
 
   pegarId(twits) {
-    console.log("pegar id");
-    console.log(twits);
-    console.log(this.newId);
-
     this.newId = 0;
-
     for (var i = 0; i < twits.length; i++) {
       if (twits[i].id > this.newId) {
         this.newId = twits[i].id;
@@ -30,7 +25,7 @@ class Home extends Component {
 
   render() {
     const { twits } = this.props;
-    const { incluirTwit } = this.props;
+    const { incluirTwit, GetIDTwit } = this.props;
 
     return (
       <div class="grid-container">
@@ -42,7 +37,7 @@ class Home extends Component {
                 incluirTwit({
                   id: this.pegarId(twits),
                   imag: { Imagem },
-                  user: "Pedro " + this.newId,
+                  user: "Paulo",
                   texto:
                     "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
                 })
@@ -67,7 +62,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  incluirTwit: twit => dispatch(IncTwit(twit))
+  incluirTwit: twit => dispatch(IncTwit(twit)),
+  GetIDTwit: twit => dispatch(IncTwit(twit))
 });
 
 export default connect(

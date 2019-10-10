@@ -11,24 +11,17 @@ export const IncTwit = twits => ({
   twits
 });
 
-/*export const IncTwit = twits => dispatch => {
-  return {
-    type: "INC_TWIT",
-    twits
-  };
-   const Dados = twits;
-  const newId = 0;
+export const DelTwit = twit => ({
+  type: "DEL_TWIT",
+  twit
+});
 
-  for (var i = 0; i < Dados.length; i++) {
-    if (Dados[i].id > newId) {
-      newId = Dados[i].id;
-    }
-  }
-  
-  Dados.push({
-    id: newId,
-    img: { Imagem },
-    user: "Pedro 1",
-    texto: "inclusão manual"
-  }); 
-};*/
+export const ReTwit = twit => ({
+  type: "RE_TWIT",
+  twit
+});
+
+export const GetIDTwit = twits => ({
+  type: "GET_TWIT",
+  twits
+});
