@@ -2,9 +2,12 @@ import { createStore } from "redux";
 import Imagem from "./../imgs/cybe.png";
 
 const INITIAL_STATE = {
+  maiorId: 99,
   twits: [
     {
       id: 0,
+      like: 2,
+      deslike: 1,
       imag: { Imagem },
       user: "Pedro",
       texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
@@ -13,6 +16,8 @@ const INITIAL_STATE = {
   twitsProp: [
     {
       id: 0,
+      like: 3,
+      deslike: 5,
       imag: { Imagem },
       user: "Pedro",
       texto:
@@ -36,13 +41,10 @@ function reducer(state = INITIAL_STATE, action) {
     case "RE_TWIT":
       return {
         ...state,
-        twits: [...state.twits, action.twits]
+        twits: [...state.twits, action.twit]
       };
     case "GET_TWIT": {
       var newId = 0;
-      console.log(newId);
-      console.log("teste");
-
       for (var i = 0; i < action.twits.length; i++) {
         if (action.twits[i].id > newId) {
           newId = action.twits[i].id;

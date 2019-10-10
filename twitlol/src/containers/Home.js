@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import ListTwit from "./../components/ListTwit";
 import ListTwitProp from "./../components/ListTwitsProp";
 import Imagem from "./../imgs/cybe.png";
-import { IncTwit, GetIDTwit } from "../store/actions";
+import { IncTwit } from "../store/actions";
 
 class Home extends Component {
   state = {
@@ -20,12 +20,13 @@ class Home extends Component {
       }
     }
     this.newId = this.newId + 1;
+
     return this.newId;
   }
 
   render() {
     const { twits } = this.props;
-    const { incluirTwit, GetIDTwit } = this.props;
+    const { incluirTwit } = this.props;
 
     return (
       <div class="grid-container">
@@ -62,8 +63,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  incluirTwit: twit => dispatch(IncTwit(twit)),
-  GetIDTwit: twit => dispatch(IncTwit(twit))
+  incluirTwit: twit => dispatch(IncTwit(twit))
 });
 
 export default connect(

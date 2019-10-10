@@ -21,7 +21,7 @@ export const ReTwit = twit => ({
   twit
 });
 
-export const GetIDTwit = twits => ({
+export const GetIDTwit = twit => ({
   type: "GET_TWIT",
-  twits
+  twit
 });

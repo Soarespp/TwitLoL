@@ -6,7 +6,7 @@ import Imagem from "./../imgs/cybe.png";
 
 class Twit extends Component {
   render() {
-    const { twit } = this.props;
+    const { twit, maiorId } = this.props;
     const { deleteTwit, ReTwit, GetIDTwit } = this.props;
     console.log(this.props.twit + "agasd");
 
@@ -25,13 +25,16 @@ class Twit extends Component {
             ID: {twit.id} - {twit.user}
           </p>
           <p> {twit.texto}</p>
+          <p>
+            Like: {twit.like} || DesLike: {twit.deslike}
+          </p>
         </div>
         <div className="Twit-comands">
           <button>DesLike</button>
           <button
             onClick={() =>
               ReTwit({
-                id: GetIDTwit(twit),
+                id: maiorId,
                 imag: { Imagem },
                 user: "Pedro",
                 texto:
@@ -52,11 +55,12 @@ class Twit extends Component {
 const mapDispatchToProps = dispatch => ({
   deleteTwit: twit => dispatch(DelTwit(twit)),
   ReTwit: twit => dispatch(ReTwit(twit)),
-  GetIDTwit: twits => dispatch(GetIDTwit(twits))
+  GetIDTwit: twit => dispatch(GetIDTwit(twit))
 });
 
 const mapStateToProps = state => ({
-  twits: state.twits
+  twits: state.twits,
+  maiorId: state.maiorId
 });
 
 export default connect(
