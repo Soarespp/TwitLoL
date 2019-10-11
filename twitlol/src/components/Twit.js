@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import "./Twit.css";
 import { connect } from "react-redux";
-import { DelTwit, ReTwit, LikeTwit, DeLikeTwit } from "../store/actions";
+import { ReTwit, LikeTwit, DeLikeTwit } from "../store/actions";
 import Imagem from "./../imgs/cybe.png";
 
 class Twit extends Component {
   render() {
     const { twit, maiorId } = this.props;
-    const { deleteTwit, ReTwit, LikeTwit, DeLikeTwit } = this.props;
-    console.log(this.props.twit + "agasd");
+    const { ReTwit, LikeTwit, DeLikeTwit } = this.props;
 
     return (
       <div className="Twit">
@@ -23,7 +22,7 @@ class Twit extends Component {
           <p>
             ID: {twit.id} - {twit.user}
           </p>
-          <p> {twit.texto}</p>
+          <p> {twit.text}</p>
           <p>
             Like: {twit.like} || DesLike: {twit.deslike}
           </p>
@@ -49,6 +48,9 @@ class Twit extends Component {
                 id: maiorId,
                 imag: { Imagem },
                 user: "Pedro",
+                like: 0,
+                deslike: 0,
+                ReTwitN: 0,
                 texto:
                   "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
               })
@@ -56,7 +58,6 @@ class Twit extends Component {
           >
             Re-Twit
           </button>
-          <button onClick={() => deleteTwit(twit)}>Delete</button>
         </div>
       </div>
     );
@@ -64,7 +65,6 @@ class Twit extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  deleteTwit: twit => dispatch(DelTwit(twit)),
   ReTwit: twit => dispatch(ReTwit(twit)),
   LikeTwit: twit => dispatch(LikeTwit(twit)),
   DeLikeTwit: twit => dispatch(DeLikeTwit(twit))

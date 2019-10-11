@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./TwitProp.css";
 
+import { DelTwit } from "../store/actions";
+
 class TwitProp extends Component {
   render() {
     const { twit } = this.props;
+    const { deleteTwit } = this.props;
 
     return (
       <div className="Twit">
@@ -15,10 +18,13 @@ class TwitProp extends Component {
             alt="Imagem"
           />
         </div>
-        <div className="Twit-texto">
+        {/* <div className="Twit-texto">
           <fieldset>
             <input name="texto" type="description" />
           </fieldset>
+        </div> */}
+        <div>
+          <p>{twit.text}</p>
         </div>
         <div>
           <p>{twit.like} like </p>
@@ -26,14 +32,16 @@ class TwitProp extends Component {
           <p>{twit.ReTwitN} ReTwit </p>
         </div>
         <div className="Twit-comands">
-          <button>Deletar</button>
+          <button onClick={() => deleteTwit(twit)}>Delete</button>
         </div>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  deleteTwit: twit => dispatch(DelTwit(twit))
+});
 
 const mapStateToProps = state => ({
   twits: state.twits,

@@ -22,7 +22,14 @@ class ListTwitProp extends Component {
   }
 }
 
-export default connect(state => ({
+const mapDispatchToProps = dispatch => ({});
+
+const mapStateToProps = state => ({
   twits: state.twits,
   userLog: state.userLog
-}))(ListTwitProp);
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ListTwitProp);

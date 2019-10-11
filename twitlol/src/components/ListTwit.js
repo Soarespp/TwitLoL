@@ -5,21 +5,38 @@ import Twit from "./Twit";
 import { connect } from "react-redux";
 
 class ListTwit extends Component {
+  state = {
+    dadosTeste: [{ user: "Pedro" }, { user: "Paulo" }]
+  };
+
+  verificarFallor() {}
+
   render() {
-    const { twits } = this.props;
+    const { twits, userLog } = this.props;
 
     return (
       <ul className="Twits">
-        {twits.map(twit => (
-          <li className="twit" key={twit.id}>
-            <Twit twit={twit} />
-          </li>
-        ))}
+        {twits
+          .filter(twit => twit.user !== userLog)
+          .map(twit => (
+            <li className="twit" key={twit.id}>
+              <Twit twit={twit} />
+            </li>
+          ))}
       </ul>
     );
   }
 }
 
-export default connect(state => ({
-  twits: state.twits
-}))(ListTwit);
+const mapDispatchToProps = dispatch => ({});
+
+const mapStateToProps = state => ({
+  twits: state.twits,
+  userLog: state.userLog,
+  UserFallow: state.UserFallow
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ListTwit);

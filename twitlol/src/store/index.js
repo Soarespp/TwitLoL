@@ -4,7 +4,7 @@ import Imagem from "./../imgs/cybe.png";
 const INITIAL_STATE = {
   maiorId: 99,
   userLog: "Pedro",
-  User: [
+  UserFallow: [
     { id: 0, user: "Pedro", seguindo: {} },
     { id: 1, user: "Paulo", seguindo: {} },
     { id: 2, user: "Renan", seguindo: {} }
@@ -17,7 +17,7 @@ const INITIAL_STATE = {
       ReTwitN: 0,
       imag: { Imagem },
       user: "Pedro",
-      texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
+      text: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
     },
     {
       id: 1,
@@ -26,7 +26,7 @@ const INITIAL_STATE = {
       ReTwitN: 0,
       imag: { Imagem },
       user: "Renan",
-      texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
+      text: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
     },
     {
       id: 2,
@@ -35,7 +35,7 @@ const INITIAL_STATE = {
       ReTwitN: 0,
       imag: { Imagem },
       user: "Antonio",
-      texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
+      text: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
     }
   ]
 };
@@ -73,6 +73,7 @@ function reducer(state = INITIAL_STATE, action) {
         )
       };
     }
+
     default:
       return state;
   }
