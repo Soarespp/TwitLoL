@@ -25,3 +25,8 @@ export const GetIDTwit = twit => ({
   type: "GET_TWIT",
   twit
 });
+
+export const LikeTwit = twit => ({
+  type: "LIKE_TWIT",
+  twit
+});

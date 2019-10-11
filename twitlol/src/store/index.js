@@ -8,6 +8,7 @@ const INITIAL_STATE = {
       id: 0,
       like: 2,
       deslike: 1,
+      ReTwitN: 0,
       imag: { Imagem },
       user: "Pedro",
       texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
@@ -18,6 +19,7 @@ const INITIAL_STATE = {
       id: 0,
       like: 3,
       deslike: 5,
+      ReTwitN: 0,
       imag: { Imagem },
       user: "Pedro",
       texto:
@@ -53,6 +55,20 @@ function reducer(state = INITIAL_STATE, action) {
       newId = newId + 1;
       return newId;
     }
+    case "LIKE_TWIT":
+      console.log(state.twits);
+      console.log(action.twit);
+      {
+        return (
+          {
+            ...state,
+            twits: state.twits.map(twit =>
+              twit.id == action.id ? { ...twit, like: twit.like + 1 } : twit
+            )
+          },
+          console.log(state.twits)
+        );
+      }
 
     default:
       return state;

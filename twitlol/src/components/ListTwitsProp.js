@@ -12,12 +12,7 @@ class ListTwitProp extends Component {
       <ul className="Twits">
         {twitsProp.map(twit => (
           <li className="twit" key={twit.id}>
-            <TwitProp
-              id={twit.id}
-              imag={twit.imag}
-              user={twit.user}
-              text={twit.texto}
-            />
+            <TwitProp twit={twit} />
           </li>
         ))}
       </ul>

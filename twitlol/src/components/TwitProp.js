@@ -1,22 +1,28 @@
 import React, { Component } from "react";
 import Imagem from "./../imgs/cybe.png";
+import { connect } from "react-redux";
 import "./TwitProp.css";
 
 class TwitProp extends Component {
   render() {
-    const dados = {
-      imag: { Imagem },
-      user: "Pedro Soares",
-      texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma",
-      like: 99,
-      desLike: 88,
-      reTwit: 15
-    };
+    // const dados = {
+    //   imag: { Imagem },
+    //   user: "Pedro Soares",
+    //   texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma",
+    //   like: 99,
+    //   desLike: 88,
+    //   reTwit: 15
+    // };
+    const { twit } = this.props;
 
     return (
       <div className="Twit">
         <div className="Twit-img">
-          <img src={dados.imag.Imagem} className="Twit-imagem" alt="Imagem" />
+          <img
+            src={this.props.twit.imag.Imagem}
+            className="Twit-imagem"
+            alt="Imagem"
+          />
         </div>
         <div className="Twit-texto">
           <fieldset>
@@ -24,9 +30,9 @@ class TwitProp extends Component {
           </fieldset>
         </div>
         <div>
-          <p1>{dados.like} like </p1>
-          <p2>{dados.desLike} dislike </p2>
-          <p3>{dados.reTwit} ReTwit </p3>
+          <p1>{twit.like} like </p1>
+          <p2>{twit.deslike} dislike </p2>
+          <p3>{twit.ReTwitN} ReTwit </p3>
         </div>
         <div className="Twit-comands">
           <button>Deletar</button>
@@ -37,4 +43,14 @@ class TwitProp extends Component {
   }
 }
 
-export default TwitProp;
+const mapDispatchToProps = dispatch => ({});
+
+const mapStateToProps = state => ({
+  twits: state.twits,
+  maiorId: state.maiorId
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TwitProp);
