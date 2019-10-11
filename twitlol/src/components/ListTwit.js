@@ -15,7 +15,6 @@ class ListTwit extends Component {
             <Twit twit={twit} />
           </li>
         ))}
-        {console.log(twits)}
       </ul>
     );
   }

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./Twit.css";
 import { connect } from "react-redux";
-import { DelTwit, ReTwit, GetIDTwit, LikeTwit } from "../store/actions";
+import { DelTwit, ReTwit, LikeTwit } from "../store/actions";
 import Imagem from "./../imgs/cybe.png";
 
 class Twit extends Component {
   render() {
     const { twit, maiorId } = this.props;
-    const { deleteTwit, ReTwit, GetIDTwit, LikeTwit } = this.props;
+    const { deleteTwit, ReTwit, LikeTwit } = this.props;
     console.log(this.props.twit + "agasd");
 
     return (
@@ -31,9 +31,7 @@ class Twit extends Component {
         <div className="Twit-comands">
           <button
             onClick={() => {
-              console.log(twit.id);
               LikeTwit(twit.id);
-              console.log(twit.id);
             }}
           >
             Like
@@ -62,7 +60,6 @@ class Twit extends Component {
 const mapDispatchToProps = dispatch => ({
   deleteTwit: twit => dispatch(DelTwit(twit)),
   ReTwit: twit => dispatch(ReTwit(twit)),
-  GetIDTwit: twit => dispatch(GetIDTwit(twit)),
   LikeTwit: twit => dispatch(LikeTwit(twit))
 });
 

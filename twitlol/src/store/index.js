@@ -45,30 +45,14 @@ function reducer(state = INITIAL_STATE, action) {
         ...state,
         twits: [...state.twits, action.twit]
       };
-    case "GET_TWIT": {
-      var newId = 0;
-      for (var i = 0; i < action.twits.length; i++) {
-        if (action.twits[i].id > newId) {
-          newId = action.twits[i].id;
-        }
-      }
-      newId = newId + 1;
-      return newId;
+    case "LIKE_TWIT": {
+      return {
+        ...state,
+        twits: state.twits.map(twit =>
+          twit.id === action.id ? { ...twit, like: twit.like + 1 } : twit
+        )
+      };
     }
-    case "LIKE_TWIT":
-      console.log(state.twits);
-      console.log(action.twit);
-      {
-        return (
-          {
-            ...state,
-            twits: state.twits.map(twit =>
-              twit.id == action.id ? { ...twit, like: twit.like + 1 } : twit
-            )
-          },
-          console.log(state.twits)
-        );
-      }
 
     default:
       return state;

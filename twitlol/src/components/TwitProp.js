@@ -30,9 +30,9 @@ class TwitProp extends Component {
           </fieldset>
         </div>
         <div>
-          <p1>{twit.like} like </p1>
-          <p2>{twit.deslike} dislike </p2>
-          <p3>{twit.ReTwitN} ReTwit </p3>
+          <p>{twit.like} like </p>
+          <p>{twit.deslike} dislike </p>
+          <p>{twit.ReTwitN} ReTwit </p>
         </div>
         <div className="Twit-comands">
           <button>Deletar</button>

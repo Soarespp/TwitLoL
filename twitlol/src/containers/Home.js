@@ -29,8 +29,8 @@ class Home extends Component {
     const { incluirTwit } = this.props;
 
     return (
-      <div class="grid-container">
-        <div class="item2">
+      <div className="grid-container">
+        <div className="item2">
           <div>Menu</div>
           <div>
             <button
@@ -48,10 +48,10 @@ class Home extends Component {
             </button>
           </div>
         </div>
-        <div class="item3">
+        <div className="item3">
           <ListTwitProp />
         </div>
-        <div class="item4">
+        <div className="item4">
           <ListTwit />
         </div>
       </div>
