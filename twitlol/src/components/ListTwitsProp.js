@@ -6,20 +6,23 @@ import TwitProp from "./TwitProp";
 
 class ListTwitProp extends Component {
   render() {
-    const { twitsProp } = this.props;
+    const { twits, userLog } = this.props;
 
     return (
       <ul className="Twits">
-        {twitsProp.map(twit => (
-          <li className="twit" key={twit.id}>
-            <TwitProp twit={twit} />
-          </li>
-        ))}
+        {twits
+          .filter(twit => twit.user === userLog)
+          .map(twit => (
+            <li className="twit" key={twit.id}>
+              <TwitProp twit={twit} />
+            </li>
+          ))}
       </ul>
     );
   }
 }
 
 export default connect(state => ({
-  twitsProp: state.twitsProp
+  twits: state.twits,
+  userLog: state.userLog
 }))(ListTwitProp);

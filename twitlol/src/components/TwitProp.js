@@ -1,18 +1,9 @@
 import React, { Component } from "react";
-import Imagem from "./../imgs/cybe.png";
 import { connect } from "react-redux";
 import "./TwitProp.css";
 
 class TwitProp extends Component {
   render() {
-    // const dados = {
-    //   imag: { Imagem },
-    //   user: "Pedro Soares",
-    //   texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma",
-    //   like: 99,
-    //   desLike: 88,
-    //   reTwit: 15
-    // };
     const { twit } = this.props;
 
     return (
@@ -36,7 +27,6 @@ class TwitProp extends Component {
         </div>
         <div className="Twit-comands">
           <button>Deletar</button>
-          <button>Salvar</button>
         </div>
       </div>
     );

@@ -30,3 +30,8 @@ export const LikeTwit = id => ({
   type: "LIKE_TWIT",
   id
 });
+
+export const DeLikeTwit = id => ({
+  type: "DESLIKE_TWIT",
+  id
+});

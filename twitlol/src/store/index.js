@@ -3,6 +3,12 @@ import Imagem from "./../imgs/cybe.png";
 
 const INITIAL_STATE = {
   maiorId: 99,
+  userLog: "Pedro",
+  User: [
+    { id: 0, user: "Pedro", seguindo: {} },
+    { id: 1, user: "Paulo", seguindo: {} },
+    { id: 2, user: "Renan", seguindo: {} }
+  ],
   twits: [
     {
       id: 0,
@@ -12,18 +18,24 @@ const INITIAL_STATE = {
       imag: { Imagem },
       user: "Pedro",
       texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
-    }
-  ],
-  twitsProp: [
+    },
     {
-      id: 0,
-      like: 3,
-      deslike: 5,
+      id: 1,
+      like: 2,
+      deslike: 1,
       ReTwitN: 0,
       imag: { Imagem },
-      user: "Pedro",
-      texto:
-        "Proprio Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
+      user: "Renan",
+      texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
+    },
+    {
+      id: 2,
+      like: 2,
+      deslike: 1,
+      ReTwitN: 0,
+      imag: { Imagem },
+      user: "Antonio",
+      texto: "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
     }
   ]
 };
@@ -53,7 +65,14 @@ function reducer(state = INITIAL_STATE, action) {
         )
       };
     }
-
+    case "DESLIKE_TWIT": {
+      return {
+        ...state,
+        twits: state.twits.map(twit =>
+          twit.id === action.id ? { ...twit, deslike: twit.deslike + 1 } : twit
+        )
+      };
+    }
     default:
       return state;
   }
