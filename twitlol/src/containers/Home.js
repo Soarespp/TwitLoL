@@ -31,21 +31,28 @@ class Home extends Component {
     return (
       <div className="grid-container">
         <div className="item2">
-          <div>Menu</div>
           <div>
-            <button
-              onClick={() =>
-                incluirTwit({
-                  id: this.pegarId(twits),
-                  imag: { Imagem },
-                  user: "Paulo",
-                  text:
-                    "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
-                })
-              }
-            >
-              Twitar
-            </button>
+            Menu
+            <fieldset>
+              <legend>Texto de twit:</legend>
+              Twit: <input type="text" id="1" />
+              <button
+                onClick={e => {
+                  incluirTwit({
+                    id: this.pegarId(twits),
+                    imag: { Imagem },
+                    user: "Paulo",
+                    text: document.getElementById("1").value,
+                    like: 0,
+                    deslike: 0,
+                    ReTwit: 0
+                  });
+                  document.getElementById("1").value = "";
+                }}
+              >
+                Click to twit
+              </button>
+            </fieldset>
           </div>
         </div>
         <div className="item3">
@@ -53,24 +60,6 @@ class Home extends Component {
         </div>
         <div className="item4">
           <ListTwit />
-        </div>
-        <div>
-          <fieldset>
-            <legend>Texto de twit:</legend>
-            Twit: <input type="text" id="1" />
-            <button
-              onClick={e => {
-                incluirTwit({
-                  id: this.pegarId(twits),
-                  imag: { Imagem },
-                  user: "Paulo",
-                  text: document.getElementById("1").value
-                });
-              }}
-            >
-              Click to twit
-            </button>
-          </fieldset>
         </div>
       </div>
     );

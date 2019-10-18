@@ -1,3 +1,9 @@
-.Tiwt {
-  display: flex;
+.Twit {
+  align-items: center;
+  box-shadow: 0 2px 10px 0 #000000;
+  justify-content: space-between;
+  padding: 1px 1px;
+  font-size: 20px;
+
+  border: solid 1px #5a1f1f;
 }

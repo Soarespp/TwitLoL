@@ -13,7 +13,9 @@ class Twit extends Component {
       <div className="Twit">
         <div className="Twit-img">
           <img
-            src={this.props.twit.imag.Imagem}
+            //   src={this.props.twit.imag.Imagem}
+            src={Imagem}
+            // src={twit.imag.Imagem}
             className="Twit-imagem"
             alt="Imagem"
           />
@@ -51,8 +53,7 @@ class Twit extends Component {
                 like: 0,
                 deslike: 0,
                 ReTwitN: 0,
-                texto:
-                  "Facilisis pulvinar tempor nunc taciti netus placerat senectus ma"
+                text: twit.text
               })
             }
           >

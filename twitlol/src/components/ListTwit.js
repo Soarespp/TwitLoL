@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Twit.css";
+import "./ListTwit.css";
 import Twit from "./Twit";
 
 import { connect } from "react-redux";
@@ -15,14 +15,15 @@ class ListTwit extends Component {
     const { twits, userLog } = this.props;
 
     return (
-      <ul className="Twits">
+      <ul className="list-twits">
         {twits
           .filter(twit => twit.user !== userLog)
           .map(twit => (
-            <li className="twit" key={twit.id}>
+            <li className="item" key={twit.id}>
               <Twit twit={twit} />
             </li>
-          ))}
+          ))
+          .reverse()}
       </ul>
     );
   }

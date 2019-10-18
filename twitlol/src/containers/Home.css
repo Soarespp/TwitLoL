@@ -11,20 +11,21 @@
   grid-area: right;
 }
 .item5 {
-  grid-area: footer;
+  grid-area: top;
 }
 
 .grid-container {
   display: grid;
-  grid-template-areas: "menu main main main right right";
-  grid-gap: 15px;
-  background-color: #2196f3;
-  padding: 18px;
+  /* grid-template-areas: "menu main main main right right"; */
+  grid-template-areas: "menu main main main right right top";
+  grid-gap: 5px;
+  background-color: #3b0000ef;
+  padding: 11px;
 }
 
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(121, 75, 75, 0.8);
   text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
+  padding: 1px 20px;
+  font-size: 20px;
 }
